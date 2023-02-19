@@ -54,9 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Limit so we cannot go faster in any direction while acceleratings
         if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed && accelerationInput > 0)
-        {
             return;
-        }
 
         //Apply drag if there is no accelerationInput so the car stops when the player les go of the button
         if (accelerationInput == 0)
@@ -64,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         else rb.drag = 0;
         
         //Create force for the engine
-        Vector2 engineForceVector = transform.up * Mathf.Abs(accelerationInput) * accelerationFactor;
+        Vector2 engineForceVector = transform.up * accelerationInput * accelerationFactor;
         
         //Apply force and pushes the car forward
         rb.AddForce(engineForceVector, ForceMode2D.Force);
@@ -84,8 +82,11 @@ public class PlayerMovement : MonoBehaviour
         float minSpeedBeforeAllowTurningFactor = (rb.velocity.magnitude / 8);
         minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
 
-        //Update the rotation angle based on input
-        rotationAngle -= steeringInput * rotationFactor * minSpeedBeforeAllowTurningFactor;
+        if(accelerationInput < 0)
+            rotationAngle -= -steeringInput * rotationFactor * minSpeedBeforeAllowTurningFactor;
+        else
+            //Update the rotation angle based on input
+            rotationAngle -= steeringInput * rotationFactor * minSpeedBeforeAllowTurningFactor;
 
         //Apply steering by rotating the car object
         rb.MoveRotation(rotationAngle);
