@@ -22,6 +22,7 @@ public class bullet : MonoBehaviour
         if (collision.CompareTag("Tank AI"))
         {
             collision.GetComponent<TankAI>().OnCollisionFollowCall();
+            collision.GetComponent<HealthManager>().ApplyDamage(25f);
         }
         die();
     }

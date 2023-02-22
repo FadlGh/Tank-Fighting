@@ -156,9 +156,19 @@ public class TankAI : MonoBehaviour
             timeBetweenCounter -= Time.deltaTime;
         }
 
+        float direction()
+        {
+            if (playerRef.GetComponent<PlayerMovement>().inputVector.x > 0)
+                return 1;
+            else
+                return -1;
+        }
         if (canShoot)
         {
-            Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
+            Instantiate(bullet, shootPoint.position, transform.rotation * new Quaternion(bulletOffset.x,
+                                                                                         bulletOffset.y,
+                                                                                         bulletOffset.z * direction(),
+                                                                                         bulletOffset.w));
             timeBetweenCounter = timeBetween;
         }
     }

@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float accelerationFactor;
     public float rotationFactor;
     public float maxSpeed;
+    public Vector2 inputVector;
 
     private float accelerationInput;
     private float steeringInput;
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Vector2 inputVector = Vector2.zero;
+        inputVector = Vector2.zero;
 
         inputVector.x = Input.GetAxis("Horizontal");
         inputVector.y = Input.GetAxis("Vertical");

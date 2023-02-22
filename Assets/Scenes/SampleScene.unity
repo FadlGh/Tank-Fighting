@@ -1618,6 +1618,7 @@ GameObject:
   - component: {fileID: 1956948697}
   - component: {fileID: 1956948699}
   - component: {fileID: 1956948700}
+  - component: {fileID: 1956948701}
   m_Layer: 0
   m_Name: Tank AI
   m_TagString: Tank AI
@@ -1675,25 +1676,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dca1ea5ce2024a4c948b361ccadbd16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 90
+  angle: 160
   radius: 3
   maxDistance: 1.5
   bullet: {fileID: 3193057218178525964, guid: 539ba92335797e44590e462f9b09a490, type: 3}
   shootPoint: {fileID: 369797700}
   bulletOffset: {x: 0, y: 0, z: 0.043619387, w: 0.99904823}
-  patrolPoints:
-  - {fileID: 676334208}
-  - {fileID: 1681182131}
-  - {fileID: 1058069761}
-  - {fileID: 100114582}
-  waitTime: 1
+  range: 0.5
+  maxPosition: 2
   targetMask:
     serializedVersion: 2
     m_Bits: 64
   obstructionMask:
     serializedVersion: 2
     m_Bits: 8
-  accelerationFactor: 2
+  accelerationFactor: 1.8
   rotationFactor: 3000
   driftFactor: 0.95
   maxSpeed: 2
@@ -1724,6 +1721,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46513927, y: 0.64852}
   m_EdgeRadius: 0
+--- !u!114 &1956948701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956948694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b94b1c082728445bbfdfb407bfe5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  ps: {fileID: 4183851732453008773, guid: 28b1d221d77841647807d21d4ab51ced, type: 3}
+  sp: {fileID: 895923497}
 --- !u!1 &1969748727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,8 +2029,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   driftFactor: 0.95
   accelerationFactor: 5
-  rotationFactor: 4
-  maxSpeed: 2.6
+  rotationFactor: 5
+  maxSpeed: 2.8
+  inputVector: {x: 0, y: 0}
 --- !u!114 &2069570102
 MonoBehaviour:
   m_ObjectHideFlags: 0
