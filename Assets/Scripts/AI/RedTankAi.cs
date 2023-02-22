@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class TankAI : MonoBehaviour
+public class RedTankAi : MonoBehaviour
 {
     [Header("Detection Settings")]
     [Range(0, 360)]
@@ -202,7 +202,6 @@ public class TankAI : MonoBehaviour
         if (collision.gameObject.layer != 3)
         {
             StartCoroutine(OnCollisionFollow());
-            print((int)obstructionMask);
         }
         else
             print("ai");

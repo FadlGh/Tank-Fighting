@@ -19,9 +19,12 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Tank AI"))
+        if (collision.gameObject.layer == 7)
         {
-            collision.GetComponent<TankAI>().OnCollisionFollowCall();
+            if(collision.tag == "Red")
+                collision.GetComponent<RedTankAi>().OnCollisionFollowCall();
+            else if(collision.tag == "Blue")
+               // collision.GetComponent<BlueTankAI>().OnCollisionFollowCall();
             collision.GetComponent<HealthManager>().ApplyDamage(25f);
         }
         die();
