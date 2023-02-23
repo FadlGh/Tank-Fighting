@@ -21,11 +21,10 @@ public class bullet : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-            if(collision.tag == "Red")
+            print("s");
+            collision.gameObject.GetComponent<HealthManager>().ApplyDamage(25f);
+            if (collision.tag == "Red")
                 collision.GetComponent<RedTankAi>().OnCollisionFollowCall();
-            else if(collision.tag == "Blue")
-               // collision.GetComponent<BlueTankAI>().OnCollisionFollowCall();
-            collision.GetComponent<HealthManager>().ApplyDamage(25f);
         }
         die();
     }

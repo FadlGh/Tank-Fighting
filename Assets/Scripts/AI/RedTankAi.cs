@@ -204,14 +204,16 @@ public class RedTankAi : MonoBehaviour
             StartCoroutine(OnCollisionFollow());
         }
         else
-            print("ai");
+        {
+            SetNewDestination();
+        }
     }
 
     IEnumerator OnCollisionFollow()
     {
         collided = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         collided = false;
     }
