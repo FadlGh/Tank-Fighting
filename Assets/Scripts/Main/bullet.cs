@@ -16,16 +16,8 @@ public class bullet : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = transform.up * shootSpeed;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 7)
-        {
-            print("s");
-            collision.gameObject.GetComponent<HealthManager>().ApplyDamage(25f);
-            if (collision.tag == "Red")
-                collision.GetComponent<RedTankAi>().OnCollisionFollowCall();
-        }
         die();
     }
 
