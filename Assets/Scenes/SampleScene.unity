@@ -1758,8 +1758,8 @@ GameObject:
   - component: {fileID: 1956948698}
   - component: {fileID: 1956948697}
   - component: {fileID: 1956948700}
-  - component: {fileID: 1956948702}
   - component: {fileID: 1956948701}
+  - component: {fileID: 1956948702}
   m_Layer: 7
   m_Name: Red Tank AI
   m_TagString: Red
@@ -1855,17 +1855,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1956948694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f78fe3405a2930648a6de6fb53a6a1f3, type: 3}
+  m_Script: {fileID: 11500000, guid: db1138d42162cb1469451dbea9aa0847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 160
   radius: 3
-  maxDistance: 2
+  maxDistance: 1.5
   bullet: {fileID: 3193057218178525964, guid: 539ba92335797e44590e462f9b09a490, type: 3}
   shootPoint: {fileID: 369797700}
-  bulletOffset: {x: 0, y: 0, z: 0.043619387, w: 0.99904823}
-  range: 0.5
-  maxPosition: 2
+  bulletOffset: {x: 0, y: 0, z: 0.02617695, w: 0.99965733}
   targetMask:
     serializedVersion: 2
     m_Bits: 64
