@@ -26,6 +26,7 @@ public class TankAi : MonoBehaviour
     public float rotationFactor;
     public float driftFactor;
     public float maxSpeed;
+    public float minSpeedBeforeTurning;
 
     [Header("Player")]
     public GameObject playerRef;
@@ -34,23 +35,7 @@ public class TankAi : MonoBehaviour
     protected bool canSeePlayer;
     protected float returnFactor = 1f;
     protected bool collided;
-
-    private void Start()
-    {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
-        rb = GetComponent<Rigidbody2D>();
-        timeBetweenCounter = timeBetween;
-    }
-
-    void Update()
-    {
-        FieldOfViewCheck();
-    }
-
-    void FixedUpdate()
-    {
-        FollowPlayerLogic();
-    }
+    protected Vector2 randomPos;
 
     protected void FieldOfViewCheck()
     {
@@ -89,52 +74,56 @@ public class TankAi : MonoBehaviour
         rb.velocity = forwardVelocity + rightVelocity * driftFactor;
     }
 
-    protected void MoveToward(Vector3 target)
+    protected void RotateToward(Vector3 target)
     {
         Vector2 directionToTarget = (target - transform.position).normalized;
         float rotateAmount = Vector3.Cross(directionToTarget, transform.up).z;
-        float minSpeedBeforeAllowTurningFactor = (rb.velocity.magnitude / 3);
-
+        float minSpeedBeforeAllowTurningFactor = rb.velocity.magnitude / minSpeedBeforeTurning;
         minSpeedBeforeAllowTurningFactor = Mathf.Clamp01(minSpeedBeforeAllowTurningFactor);
 
+        rb.angularVelocity = -rotateAmount * rotationFactor * minSpeedBeforeAllowTurningFactor;
+    }
+
+    protected void MoveToward(Vector3 target)
+    {
         //Calculate how much "forward" we are going in terms of direction of our velocity
         float velocityVsUp = Vector2.Dot(transform.up, rb.velocity);
 
         if (velocityVsUp > maxSpeed)
             return;
 
-        rb.angularVelocity = -rotateAmount * rotationFactor * minSpeedBeforeAllowTurningFactor;
+        if (Physics2D.Raycast(transform.position, transform.up, 1f, obstructionMask))
+            returnFactor = -1;
+        else
+            returnFactor = 1;
+
+        RotateToward(target);
         rb.AddForce(transform.up * accelerationFactor * returnFactor, ForceMode2D.Force);
         rb.drag = 0;
 
         KillOrthogonalVelocity();
     }
 
-    protected void FollowPlayerLogic()
+    protected virtual void FollowPlayerLogic()
     {
         if (!canSeePlayer && collided)
         {
             canSeePlayer = true;
         }
-
-        if (canSeePlayer)
+        if (!canSeePlayer)
         {
-            if (Vector2.Distance(transform.position, playerRef.transform.position) < maxDistance)
-            {
-                returnFactor = -1f;
-            }
-            else
-            {
-                returnFactor = 1f;
-            }
+            Wander();
+        }
+    }
 
-            MoveToward(playerRef.transform.position);
-            Shoot();
-        }
-        else
-        {
-            rb.drag = Mathf.Lerp(rb.drag, 5.0f, Time.fixedDeltaTime * 3f);
-        }
+    protected void Wander()
+    {
+        MoveToward(randomPos);
+    }
+
+    protected void SetNewDestination()
+    {
+        randomPos = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
     }
 
     public virtual void Shoot()
@@ -155,7 +144,7 @@ public class TankAi : MonoBehaviour
 
     protected void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
 
@@ -165,16 +154,22 @@ public class TankAi : MonoBehaviour
         {
             StartCoroutine(OnCollisionFollow());
         }
-        else
-            print("ai");
     }
 
-    IEnumerator OnCollisionFollow()
+    protected IEnumerator OnCollisionFollow()
     {
         collided = true;
 
         yield return new WaitForSeconds(2f);
 
         collided = false;
+    }
+
+    protected IEnumerator SetDestination()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SetNewDestination();
+        StartCoroutine(SetDestination());
     }
 }
