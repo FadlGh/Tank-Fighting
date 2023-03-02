@@ -1,24 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
     public GameObject bullet;
     public Transform shootPoint;
+    private float timeBetweenCounter;
+    private float timeBetween = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        if (timeBetweenCounter > 0)
+        {
+            timeBetweenCounter -= Time.deltaTime;
+            return;
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bullet, shootPoint.position, transform.rotation);
+            timeBetweenCounter = timeBetween;
         }
     }
 }

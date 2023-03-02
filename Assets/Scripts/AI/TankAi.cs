@@ -13,7 +13,6 @@ public class TankAi : MonoBehaviour
     public GameObject bullet;
     public Transform shootPoint;
     public Quaternion bulletOffset;
-    protected bool canShoot;
     protected float timeBetweenCounter;
     protected float timeBetween = 1f;
 
@@ -92,9 +91,9 @@ public class TankAi : MonoBehaviour
         if (velocityVsUp > maxSpeed)
             return;
 
-        if (Physics2D.Raycast(transform.position, transform.up, 1f, obstructionMask))
+        if (Physics2D.Raycast(transform.position, transform.up, 0.5f, obstructionMask))
             returnFactor = -1;
-        else
+        else if(!canSeePlayer)
             returnFactor = 1;
 
         RotateToward(target);
@@ -134,7 +133,7 @@ public class TankAi : MonoBehaviour
             return;
         }
 
-        Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
+        GameObject bulletG = Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
         timeBetweenCounter = timeBetween;
     }
     protected void OnCollisionFollowCall()
