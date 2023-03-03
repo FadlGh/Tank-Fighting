@@ -133,8 +133,8 @@ public class TankAi : MonoBehaviour
             return;
         }
 
-        GameObject bulletG = Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
         timeBetweenCounter = timeBetween;
+        GameObject bullet1 = Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
     }
     protected void OnCollisionFollowCall()
     {
@@ -149,7 +149,7 @@ public class TankAi : MonoBehaviour
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer != 3)
+        if (collision.gameObject.layer != 3 && collision.gameObject.layer != 7)
         {
             StartCoroutine(OnCollisionFollow());
         }

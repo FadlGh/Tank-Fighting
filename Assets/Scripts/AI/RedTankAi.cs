@@ -14,7 +14,6 @@ public class RedTankAi : TankAi
     void Update()
     {
         FieldOfViewCheck();
-        print(canSeePlayer);
     }
 
     void FixedUpdate()

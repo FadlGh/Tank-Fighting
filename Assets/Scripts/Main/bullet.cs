@@ -16,8 +16,11 @@ public class bullet : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = transform.up * shootSpeed;
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.GetComponent<HealthManager>() != null)
+            collision.gameObject.GetComponent<HealthManager>().ApplyDamage(25f);
         die();
     }
 

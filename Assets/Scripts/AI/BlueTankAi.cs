@@ -21,4 +21,14 @@ public class BlueTankAi : TankAi
     {
         FollowPlayerLogic();
     }
+
+    protected override void FollowPlayerLogic()
+    {
+        base.FollowPlayerLogic();
+        if (canSeePlayer)
+        {
+            RotateToward(playerRef.transform.position);
+            Shoot();
+        }
+    }
 }
