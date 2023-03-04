@@ -6,15 +6,16 @@ public class bullet : MonoBehaviour
 {
     public float shootSpeed;
     public ParticleSystem ps;
-
+    private Rigidbody2D rb;
     void Start()
     {
         StartCoroutine(timer());
+        rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = transform.up * shootSpeed;
+        rb.velocity = transform.up * shootSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,6 +29,19 @@ public class bullet : MonoBehaviour
     {
         Instantiate(ps, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    public void FollowPlayer(Vector3 target)
+    {
+        shootSpeed = 3f;
+
+        Vector2 directionToTarget = (target - transform.position).normalized;
+        float rotateAmount = Vector3.Cross(directionToTarget, transform.up).z;
+        if (rb != null)
+        {
+            rb.angularVelocity = -rotateAmount * 500f;
+            rb.velocity = transform.up * shootSpeed;
+        }
     }
 
     IEnumerator timer()

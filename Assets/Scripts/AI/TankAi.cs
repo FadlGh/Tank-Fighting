@@ -13,8 +13,10 @@ public class TankAi : MonoBehaviour
     public GameObject bullet;
     public Transform shootPoint;
     public Quaternion bulletOffset;
+    public float timeBetween = 1f;
     protected float timeBetweenCounter;
-    protected float timeBetween = 1f;
+    protected GameObject bullet1;
+
 
     [Header("Layers")]
     public LayerMask targetMask;
@@ -134,7 +136,7 @@ public class TankAi : MonoBehaviour
         }
 
         timeBetweenCounter = timeBetween;
-        GameObject bullet1 = Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
+        bullet1 = Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
     }
     protected void OnCollisionFollowCall()
     {
