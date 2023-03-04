@@ -125,7 +125,7 @@ public class TankAi : MonoBehaviour
         randomPos = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
     }
 
-    public virtual void Shoot()
+    protected virtual void Shoot()
     {
         if (timeBetweenCounter > 0)
         {
