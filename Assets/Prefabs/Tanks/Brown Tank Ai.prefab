@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 100
-  radius: 2
+  radius: 3
   maxDistance: 1
   bullet: {fileID: 3193057218178525964, guid: 539ba92335797e44590e462f9b09a490, type: 3}
   shootPoint: {fileID: 8323926478351980964}

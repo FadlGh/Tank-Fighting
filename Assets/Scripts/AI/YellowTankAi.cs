@@ -15,6 +15,10 @@ public class YellowTankAi : TankAi
     void Update()
     {
         FieldOfViewCheck();
+        if (timeBetweenCounter > 0)
+        {
+            timeBetweenCounter -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -26,7 +30,7 @@ public class YellowTankAi : TankAi
     {
         base.Shoot();
         if(bullet1 != null)
-            bullet1.GetComponent<bullet>().FollowPlayer(playerRef.transform.position);
+            bullet1.GetComponent<Bullet>().FollowPlayer(playerRef.transform.position);
     }
 
     protected override void FollowPlayerLogic()

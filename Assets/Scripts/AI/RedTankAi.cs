@@ -14,6 +14,10 @@ public class RedTankAi : TankAi
     void Update()
     {
         FieldOfViewCheck();
+        if (timeBetweenCounter > 0)
+        {
+            timeBetweenCounter -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()

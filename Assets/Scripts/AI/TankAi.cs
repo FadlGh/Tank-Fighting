@@ -53,8 +53,6 @@ public class TankAi : MonoBehaviour
 
                 if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
-                    if (!canSeePlayer)
-                        timeBetweenCounter = timeBetween;
                     canSeePlayer = true;
                 }
                 else
@@ -130,13 +128,10 @@ public class TankAi : MonoBehaviour
     protected virtual void Shoot()
     {
         if (timeBetweenCounter > 0)
-        {
-            timeBetweenCounter -= Time.deltaTime;
             return;
-        }
 
-        timeBetweenCounter = timeBetween;
         bullet1 = Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
+        timeBetweenCounter = timeBetween;
     }
     protected void OnCollisionFollowCall()
     {
