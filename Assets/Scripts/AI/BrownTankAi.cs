@@ -53,7 +53,6 @@ public class BrownTankAi : TankAi
         Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
 
         yield return new WaitForSeconds(1f);
-
         Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
     }
 }

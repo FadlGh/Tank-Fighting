@@ -129,7 +129,7 @@ MonoBehaviour:
   driftFactor: 0.95
   maxSpeed: 1
   minSpeedBeforeTurning: 1
-  playerRef: {fileID: 0}
+  playerRef: {fileID: 456992623066869094, guid: 95cea396fe16f564c8a0429be6036115, type: 3}
 --- !u!1 &8323926477955770606
 GameObject:
   m_ObjectHideFlags: 0
