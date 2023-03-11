@@ -91,7 +91,7 @@ public class TankAi : MonoBehaviour
         if (velocityVsUp > maxSpeed)
             return;
 
-        if (Physics2D.Raycast(transform.position, transform.up, 0.5f, obstructionMask))
+        if (Physics2D.Raycast(transform.position, transform.up, 0.2f, obstructionMask))
             returnFactor = -1;
         else if(!canSeePlayer)
             returnFactor = 1;

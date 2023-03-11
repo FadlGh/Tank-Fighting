@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1279328933574228966}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 10.09, y: 3.15, z: -0.015342943}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1279328933793648423}
@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 90
-  radius: 2
-  maxDistance: 1
+  radius: 0.8
+  maxDistance: 0.4
   bullet: {fileID: 3193057218178525964, guid: 539ba92335797e44590e462f9b09a490, type: 3}
   shootPoint: {fileID: 1279328935123410874}
   bulletOffset: {x: 0, y: 0, z: 0.02617695, w: 0.99965733}
@@ -128,7 +128,7 @@ MonoBehaviour:
   rotationFactor: 600
   driftFactor: 0.95
   maxSpeed: 1.2
-  minSpeedBeforeTurning: 0
+  minSpeedBeforeTurning: 1
   playerRef: {fileID: 456992623066869094, guid: 95cea396fe16f564c8a0429be6036115, type: 3}
 --- !u!1 &1279328933793648422
 GameObject:
