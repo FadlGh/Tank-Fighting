@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
 
     public void FollowPlayer(Vector3 target)
     {
-        shootSpeed = 3f;
+        shootSpeed = 1f;
 
         Vector2 directionToTarget = (target - transform.position).normalized;
         float rotateAmount = Vector3.Cross(directionToTarget, transform.up).z;
