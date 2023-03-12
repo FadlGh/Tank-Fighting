@@ -123,7 +123,6 @@ public class TankAi : MonoBehaviour
     protected void SetNewDestination()
     {
         randomPos = new Vector2(Random.Range(-2, 5), Random.Range(-2, 5));
-        print(randomPos);
     }
 
     protected virtual void Shoot()

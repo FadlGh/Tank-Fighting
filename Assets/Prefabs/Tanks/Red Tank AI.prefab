@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 240
-  radius: 3.5
+  radius: 1
   maxDistance: 1
   bullet: {fileID: 3193057218178525964, guid: 539ba92335797e44590e462f9b09a490, type: 3}
   shootPoint: {fileID: 3198087328735628310}
@@ -324,7 +324,7 @@ MonoBehaviour:
   obstructionMask:
     serializedVersion: 2
     m_Bits: 8
-  accelerationFactor: 4
+  accelerationFactor: 3.5
   rotationFactor: 600
   driftFactor: 0.95
   maxSpeed: 2.2
