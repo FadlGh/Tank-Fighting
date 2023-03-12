@@ -117,7 +117,7 @@ MonoBehaviour:
   bullet: {fileID: 3193057218178525964, guid: 539ba92335797e44590e462f9b09a490, type: 3}
   shootPoint: {fileID: 1279328935123410874}
   bulletOffset: {x: 0, y: 0, z: 0.02617695, w: 0.99965733}
-  timeBetween: 1
+  timeBetween: 1.5
   targetMask:
     serializedVersion: 2
     m_Bits: 64

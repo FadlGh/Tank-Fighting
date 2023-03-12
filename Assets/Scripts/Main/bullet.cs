@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float shootSpeed;
     public ParticleSystem ps;
     private Rigidbody2D rb;
+
     void Start()
     {
         StartCoroutine(timer());
