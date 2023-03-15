@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     {
         StartCoroutine(timer());
         rb = GetComponent<Rigidbody2D>();
+        FindObjectOfType<AudioManager>().Play("fire");
     }
     // Update is called once per frame
     void Update()
@@ -21,6 +22,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        FindObjectOfType<AudioManager>().Play("explosion");
         if (collision.gameObject.GetComponent<HealthManager>() != null)
             collision.gameObject.GetComponent<HealthManager>().ApplyDamage(25f);
         die();
