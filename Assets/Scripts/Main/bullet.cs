@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("explosion");
         if (collision.gameObject.GetComponent<HealthManager>() != null)
             collision.gameObject.GetComponent<HealthManager>().ApplyDamage(25f);
+
         die();
     }
 
