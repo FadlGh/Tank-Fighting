@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 88122559}
   - component: {fileID: 88122561}
   - component: {fileID: 88122560}
-  - component: {fileID: 88122562}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -209,18 +208,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 811960265}
---- !u!114 &88122562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88122558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865bb62d513eb0a4798ba8688dcd9568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &171763454
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +266,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234870322}
-  - component: {fileID: 234870321}
   - component: {fileID: 234870320}
   m_Layer: 0
   m_Name: GameManager
@@ -300,22 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4b6fdc9679d3643a50637e149c14fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &234870321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 234870319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd70e13eb5bc4049a599950c9aacf3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 9360f96f371da8f4e91718a763f9bce2, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &234870322
 Transform:
   m_ObjectHideFlags: 0

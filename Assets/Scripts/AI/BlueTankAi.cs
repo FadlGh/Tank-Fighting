@@ -31,7 +31,8 @@ public class BlueTankAi : TankAi
         base.FollowPlayerLogic();
         if (canSeePlayer)
         {
-            RotateToward(playerRef.transform.position);
+            if(playerRef != null)
+                RotateToward(playerRef.transform.position);
             Shoot();
         }
     }

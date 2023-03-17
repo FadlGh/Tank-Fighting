@@ -8,6 +8,8 @@ public class HealthManager : MonoBehaviour
     public ParticleSystem ps;
     public SpriteRenderer sp;
     private float health;
+    [HideInInspector]
+    public bool dead;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class HealthManager : MonoBehaviour
     {
         if (health <= 0)
         {
+            dead = true;
             ParticleSystem effect = Instantiate(ps, transform.position, Quaternion.identity);
             var main = effect.GetComponent<ParticleSystem>().main;
             main.startColor = sp.color;

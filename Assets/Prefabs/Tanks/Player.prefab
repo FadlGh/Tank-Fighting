@@ -101,10 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b94b1c082728445bbfdfb407bfe5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 75
   ps: {fileID: 4183851732453008773, guid: 28b1d221d77841647807d21d4ab51ced, type: 3}
   sp: {fileID: 456992623640273590}
-  gameEvent: {fileID: 11400000, guid: eccd9d3b54498c74f820c1d86283bcde, type: 2}
 --- !u!1 &456992623142733271
 GameObject:
   m_ObjectHideFlags: 0
