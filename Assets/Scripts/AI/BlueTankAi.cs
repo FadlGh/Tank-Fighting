@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BlueTankAi : TankAi
@@ -31,7 +29,7 @@ public class BlueTankAi : TankAi
         base.FollowPlayerLogic();
         if (canSeePlayer)
         {
-            if(playerRef != null)
+            if (playerRef != null)
                 RotateToward(playerRef.transform.position);
             Shoot();
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class YellowTankAi : TankAi
@@ -29,7 +27,7 @@ public class YellowTankAi : TankAi
     protected override void Shoot()
     {
         base.Shoot();
-        if(bullet1 != null)
+        if (bullet1 != null)
             bullet1.GetComponent<Bullet>().FollowPlayer(playerRef.transform.position);
     }
 
@@ -38,7 +36,8 @@ public class YellowTankAi : TankAi
         base.FollowPlayerLogic();
         if (canSeePlayer)
         {
-            RotateToward(playerRef.transform.position);
+            if (playerRef != null)
+                RotateToward(playerRef.transform.position);
             Shoot();
         }
     }

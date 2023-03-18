@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BrownTankAi : TankAi
@@ -30,7 +29,6 @@ public class BrownTankAi : TankAi
         if (timeBetweenCounter > 0)
             return;
 
-        print('s');
         bullet1 = Instantiate(bullet, shootPoint.position, transform.rotation * bulletOffset);
         StartCoroutine(shootMultipleTimes());
         timeBetweenCounter = timeBetween;
@@ -41,7 +39,8 @@ public class BrownTankAi : TankAi
         base.FollowPlayerLogic();
         if (canSeePlayer)
         {
-            RotateToward(playerRef.transform.position);
+            if (playerRef != null)
+                RotateToward(playerRef.transform.position);
             Shoot();
         }
     }

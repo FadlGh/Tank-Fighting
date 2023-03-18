@@ -5,8 +5,8 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    public static AudioManager instance; 
-    
+    public static AudioManager instance;
+
     void Awake()
     {
         if (instance == null)

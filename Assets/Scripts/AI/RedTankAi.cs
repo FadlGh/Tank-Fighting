@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class RedTankAi : TankAi
@@ -40,7 +39,8 @@ public class RedTankAi : TankAi
                 returnFactor = 1f;
             }
 
-            MoveToward(playerRef.transform.position);
+            if (playerRef != null)
+                MoveToward(playerRef.transform.position);
             Shoot();
         }
     }

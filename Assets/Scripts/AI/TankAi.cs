@@ -93,7 +93,7 @@ public class TankAi : MonoBehaviour
 
         if (Physics2D.Raycast(transform.position, transform.up, 0.2f, obstructionMask))
             returnFactor = -1;
-        else if(!canSeePlayer)
+        else if (!canSeePlayer)
             returnFactor = 1;
 
         RotateToward(target);

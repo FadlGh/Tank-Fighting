@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Cinemachine;
 
 public class GameManagerScript : MonoBehaviour
 {
     public HealthManager hm;
     public GameObject gameOverUi;
 
+    void Start()
+    {
+        hm = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthManager>();
+    }
     void Update()
     {
         if (hm.dead || GameObject.FindGameObjectsWithTag("AI").Length < 1)

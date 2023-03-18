@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3198087328735628305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.123, y: 0.004, z: 0}
+  m_LocalPosition: {x: 0.149, y: -0.009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angle: 240
   radius: 1
-  maxDistance: 1
+  maxDistance: 0.4
   bullet: {fileID: 3193057218178525964, guid: 539ba92335797e44590e462f9b09a490, type: 3}
   shootPoint: {fileID: 3198087328735628310}
   bulletOffset: {x: 0, y: 0, z: 0.02617695, w: 0.99965733}
