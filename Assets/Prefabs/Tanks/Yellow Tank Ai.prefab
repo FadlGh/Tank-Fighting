@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 257612457112070494}
   m_Layer: 7
   m_Name: Yellow Tank Ai
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
   maxHealth: 75
   ps: {fileID: 4183851732453008773, guid: 28b1d221d77841647807d21d4ab51ced, type: 3}
   sp: {fileID: 257612457586042492}
+  dead: 0
 --- !u!114 &257612457112070494
 MonoBehaviour:
   m_ObjectHideFlags: 0

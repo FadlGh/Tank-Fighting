@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameManagerScript : MonoBehaviour
 
     void Update()
     {
-        if (hm.dead)
+        if (hm.dead || GameObject.FindGameObjectsWithTag("AI").Length < 1)
         {
             gameOverUi.SetActive(true);
         }
